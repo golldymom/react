@@ -11,7 +11,7 @@ const FavoritesContext = createContext({ //대문자 잊지 말것
 //리액트의 일반적인 컴포넌트 값을 받으려는 모든 컴포넌트에 context를 제공하는 역헐, 업데이트도 함
 export function FavoritesContextProvider(props) {
   const [userFavorites, setUserFavorites] = useState([]);
-
+// 이름을 내보낸느 것
   function addFavoriteHandler(favoriteMeetup) {
     setUserFavorites((prevUserFavorites) => {
       return prevUserFavorites.concat(favoriteMeetup);
@@ -21,7 +21,7 @@ export function FavoritesContextProvider(props) {
   function removeFavoriteHandler(meetupId) {
     setUserFavorites(prevUserFavorites => {
       return prevUserFavorites.filter(meetup => meetup.id !== meetupId);
-    });
+    }); //meetup내장함수
   }
 //헬퍼 함수, 항목을 보고 즐겨찾기된 항목인지 파악하는데 도움 주려고.
   function itemIsFavoriteHandler(meetupId) {
@@ -42,5 +42,5 @@ export function FavoritesContextProvider(props) {
     </FavoritesContext.Provider>
   );
 }
-
+//기본값으로 내보내는 것
 export default FavoritesContext;
